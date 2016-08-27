@@ -1,0 +1,83 @@
+/*  PRIVILEGIOS DEMANDA DE ELIMINAR  */
+
+/*  PRIVILEGIOS DEMANDA */
+.borrar{
+
+	display: none;
+}
+
+
+/*  PRIVILEGIOS TUTELAS */
+.borrar_tutela{
+
+	display: none;
+}
+
+
+
+/*  PRIVILEGIOS CONCILIACONES */
+.borrar_conciliacion{
+
+	display: none;
+}
+
+
+
+/*  PRIVILEGIOS DERECHOS */
+.borrar_derecho{
+
+	display: none;
+}
+
+
+/*  PRIVILEGIOS AVANCES */
+.borrar_avances{
+
+	display: none;
+}
+
+
+/*  PRIVILEGIOS POLIZAS */
+.borrar_polizas{
+
+	display: none;
+}
+
+
+/*/////////////////////////////////////////////////////////////////  PRIVILEGIOS DEMANDA DE EDITAR  */
+
+
+
+/*  PRIVILEGIOS DEMANDAS */
+.editar{
+
+	display: none;
+}
+
+
+/*  PRIVILEGIOS TUTELAS */
+.editar_tutela{
+
+	display: none;
+}
+
+
+/*  PRIVILEGIOS DERECHOS */
+.editar_derecho{
+
+	display: none;
+}
+
+
+/*  PRIVILEGIOS AVANCES */
+.editar_avances{
+
+	display: none;
+}
+
+
+/*  PRIVILEGIOS POLIZAS */
+.editar_polizas{
+
+	display: none;
+}

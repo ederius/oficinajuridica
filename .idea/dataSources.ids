@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - db_juridica@localhost" uuid="2fd3e554-b1d2-4e6b-8216-3239f028e66c">
+    <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="db_juridica"/>
+    <table name="administradores" schema="" catalog="db_juridica" type="TABLE">
+      <column name="idusuario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre_completo" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="nombre_usuario" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="contrasena" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="roll" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idusuario"/>
+    </table>
+    <table name="archivos" schema="" catalog="db_juridica" type="TABLE">
+      <column name="archivo" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="archivo"/>
+    </table>
+    <table name="asesor" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_asesor" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="nombre" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_asesor"/>
+    </table>
+    <table name="avances_tramite" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_avance" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fecha_entrada" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fecha_salida" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="correccion" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="id_dependencias" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="beneficiario" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="recibe_rectoria_firma" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fecha_salida_correccion" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="archivo" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_avance"/>
+      <index name="dependencia" unique="false" columns="id_dependencias"/>
+      <index name="id_dependencias" unique="false" columns="id_dependencias"/>
+      <index name="id_dependencias_2" unique="false" columns="id_dependencias"/>
+    </table>
+    <table name="comentarios_avances" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_comentario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="contenido" sqlType="VARCHAR" precision="800" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_avance" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_administrador" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fecha" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hora" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="segundos" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_comentario"/>
+    </table>
+    <table name="comentarios_conciliacion" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_comentario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="contenido" sqlType="VARCHAR" precision="800" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_conciliacion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_asesor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fecha" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hora" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="segundos" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_comentario"/>
+    </table>
+    <table name="comentarios_demanda" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_comentario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="contenido" sqlType="VARCHAR" precision="800" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_demanda" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_asesor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fecha" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hora" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="segundos" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id_comentario"/>
+      <index name="id_demanda" unique="false" columns="id_demanda,id_asesor"/>
+    </table>
+    <table name="comentarios_derechos" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_comentario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="contenido" sqlType="VARCHAR" precision="800" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_derecho" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_asesor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fecha" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hora" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="segundos" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_comentario"/>
+    </table>
+    <table name="comentarios_polizas" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_comentario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="contenido" sqlType="VARCHAR" precision="800" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_poliza" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_administrador" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fecha" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hora" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="segundos" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_comentario"/>
+    </table>
+    <table name="comentarios_tutela" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_comentario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="contenido" sqlType="VARCHAR" precision="800" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_tutela" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_asesor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fecha" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hora" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="segundos" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id_comentario"/>
+    </table>
+    <table name="conciliacion" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_conciliacion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="radicado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fecha_peticion" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="convocante" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="convocado" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="notificacion" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cuantia" sqlType="DECIMAL" precision="20" scale="0" nullable="false" jdbcType="3"/>
+      <column name="pretensiones" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="fecha_comite_conciliacion" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="audiencia" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="aprobacion" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="resolucion_pago" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="fecha_pago" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="accion_repeticion" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="archivo" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_conciliacion"/>
+      <index name="radicado" unique="true" columns="radicado"/>
+      <index name="convocado" unique="false" columns="convocado"/>
+      <index name="convocante" unique="false" columns="convocante"/>
+    </table>
+    <table name="convocado" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_convocado" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="nombre" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_convocado"/>
+    </table>
+    <table name="dependencias" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_dependencias" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_dependencias"/>
+    </table>
+    <table name="dmo_accion" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_accion" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_accion"/>
+    </table>
+    <table name="dmo_apelacion" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_apelacion" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_apelacion"/>
+    </table>
+    <table name="dmo_clase" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_clase" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_clase"/>
+    </table>
+    <table name="dmo_demanda" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_demanda" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="radicado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_accion" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="notificacion" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_demandante" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_demandado" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="id_juzgado" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="audiencia1" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="audiencia2" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cambio_radicado" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="cuantia" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pretensiones" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="contestacion" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_apelacion" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="conciliacion" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="pruebas" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="alegatos" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="fallo_1" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="fallo_2" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="id_proceso" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="traslado_demanda" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="impugnacion" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="setencia" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="observaciones" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="id_asesor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="archivo" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_resultado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_demanda"/>
+      <index name="radicado" unique="true" columns="radicado"/>
+      <index name="id_accion" unique="false" columns="id_accion"/>
+      <index name="id_apelacion" unique="false" columns="id_apelacion"/>
+      <index name="id_asesor" unique="false" columns="id_asesor"/>
+      <index name="id_asesor_2" unique="false" columns="id_asesor"/>
+      <index name="id_demandado" unique="false" columns="id_demandado"/>
+      <index name="id_demandante" unique="false" columns="id_demandante"/>
+      <index name="id_juzgado" unique="false" columns="id_juzgado"/>
+      <index name="id_proceso" unique="false" columns="id_proceso"/>
+    </table>
+    <table name="dmo_demandado" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_demandado" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_demandado"/>
+    </table>
+    <table name="dmo_derecho" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_derechopeticion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fecharecibido" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_peticionario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_apoderado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_asesor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_clase" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_peticion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_estado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="vencimientotermino" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="respuesta" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="archivo" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_resultado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_derechopeticion"/>
+      <index name="id_apoderado" unique="false" columns="id_apoderado"/>
+      <index name="id_asesor" unique="false" columns="id_asesor"/>
+      <index name="id_clase" unique="false" columns="id_clase"/>
+      <index name="id_estado" unique="false" columns="id_estado"/>
+      <index name="id_peticion" unique="false" columns="id_peticion"/>
+      <index name="id_peticionario" unique="false" columns="id_peticionario"/>
+    </table>
+    <table name="dmo_estado" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_estado" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_estado"/>
+    </table>
+    <table name="dmo_fallo_instancia" schema="" catalog="db_juridica" type="TABLE">
+      <column name="radicado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="instancia" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dato" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="radicado"/>
+    </table>
+    <table name="dmo_juzgado" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_juzgado" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_juzgado"/>
+    </table>
+    <table name="dmo_peticion" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_peticion" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_peticion"/>
+    </table>
+    <table name="dmo_proceso" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_proceso" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_proceso"/>
+    </table>
+    <table name="dmo_requerimiento" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_requerimiento" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="fecha" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="anunciante" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="asunto" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="dias" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plazo_vencimineto" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="id_asesor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_requerimiento"/>
+    </table>
+    <table name="docente" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_docente" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_docente"/>
+    </table>
+    <table name="empresa" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nit" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nombre" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="estado" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_estado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id_estado"/>
+    </table>
+    <table name="nivel" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_nivel" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" autoIncrement="true"/>
+      <column name="nivel" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_nivel"/>
+    </table>
+    <table name="persona" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_persona" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="apellido" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nombre" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="direccion" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="telefono" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="fechanacimiento" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sexo" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id_persona"/>
+    </table>
+    <table name="plz_asegurado" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_asegurado" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_asegurado"/>
+    </table>
+    <table name="plz_cargos" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_cargos" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_cargos"/>
+    </table>
+    <table name="plz_contrato" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_contrato" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="objeto_contrato" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id_contrato"/>
+    </table>
+    <table name="plz_entidadaseguradora" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_entidad" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_entidad"/>
+      <index name="id_entidad" unique="false" columns="id_entidad"/>
+      <index name="id_entidad_2" unique="false" columns="id_entidad"/>
+      <index name="id_entidad_3" unique="false" columns="id_entidad"/>
+      <index name="id_entidad_4" unique="false" columns="id_entidad"/>
+    </table>
+    <table name="plz_poliza" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_poliza" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fecha_expedicion" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="vigencia_desde" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="vigencia_hasta" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="numero_contrato" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="objeto_contrato" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="valorasegurado" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="id_entidad" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="id_riesgoasegurado" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="id_asegurado" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="id_tipodeamparo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="id_tomador" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_supervisor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="archivo" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_poliza"/>
+      <index name="id_asegurado" unique="false" columns="id_asegurado"/>
+      <index name="id_entidad" unique="false" columns="id_entidad,id_riesgoasegurado,id_asegurado,id_tipodeamparo"/>
+      <index name="id_riesgoasegurado" unique="false" columns="id_riesgoasegurado"/>
+      <index name="id_supervisor" unique="false" columns="id_supervisor"/>
+      <index name="id_tipodeamparo" unique="false" columns="id_tipodeamparo"/>
+      <index name="id_tomador" unique="false" columns="id_tomador"/>
+    </table>
+    <table name="plz_riesgoasegurado" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_riesgoasegurado" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fecha" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="url" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_riesgoasegurado"/>
+    </table>
+    <table name="plz_supervisor" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_supervisor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="id_dependencias" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="id_cargos" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id_supervisor"/>
+      <index name="id_cargos" unique="false" columns="id_cargos"/>
+      <index name="id_dependencias" unique="false" columns="id_dependencias"/>
+    </table>
+    <table name="plz_tipodeamparo" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_tipodeamparo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_tipodeamparo"/>
+    </table>
+    <table name="plz_tomador" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_tomador" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="id_dependencias" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="id_cargos" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id_tomador"/>
+      <index name="id_cargos" unique="false" columns="id_cargos"/>
+      <index name="id_dependencias" unique="false" columns="id_dependencias"/>
+    </table>
+    <table name="prueba" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_t" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="f1" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="id_t"/>
+    </table>
+    <table name="resolucion" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="fecha" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hora" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_empresa" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="id" unique="true" columns="id"/>
+    </table>
+    <table name="resolucion_docente" schema="" catalog="db_juridica" type="TABLE">
+      <column name="numero_resolucion" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="nit_cedula" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="valor" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="valor_total" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="documento_completo" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="estado_docente" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="numero_resolucion"/>
+      <index name="nit_cedula" unique="false" columns="nit_cedula"/>
+    </table>
+    <table name="sexo" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_sexo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" autoIncrement="true"/>
+      <column name="sexo" sqlType="VARCHAR" precision="9" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_sexo"/>
+    </table>
+    <table name="tutelas" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_tutela" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="radicado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="accionante" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="accionado" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="asesor_encargado" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="pretensiones" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="contestacion" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="archivo" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fallo_1" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="traslado_demanda" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="impugnacion" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="fallo_2" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="id_resultado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_tutela"/>
+      <index name="radicado" unique="true" columns="radicado"/>
+      <index name="accionado" unique="false" columns="accionado"/>
+      <index name="accionante" unique="false" columns="accionante"/>
+      <index name="asesor_encargado" unique="false" columns="asesor_encargado"/>
+    </table>
+    <table name="usuario" schema="" catalog="db_juridica" type="TABLE">
+      <column name="id_usuario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="password" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_nivel" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id_usuario"/>
+      <index name="id_nivel" unique="false" columns="id_nivel"/>
+    </table>
+  </data-source>
+</component>

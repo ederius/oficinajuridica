@@ -1,0 +1,8 @@
+.contenedor{
+ text-align: center;
+ width: 270px ;
+ float: left;
+ margin-left: 40%;
+  margin-top: 7%;
+
+}
